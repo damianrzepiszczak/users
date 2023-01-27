@@ -1,4 +1,4 @@
-package rzepi.dam.users.configuration;
+package rzepi.dam.users.infrastructure;
 
 import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
 import io.github.resilience4j.common.circuitbreaker.configuration.CircuitBreakerConfigCustomizer;

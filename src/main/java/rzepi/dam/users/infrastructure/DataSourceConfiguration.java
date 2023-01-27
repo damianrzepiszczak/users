@@ -1,4 +1,4 @@
-package rzepi.dam.users.configuration;
+package rzepi.dam.users.infrastructure;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
