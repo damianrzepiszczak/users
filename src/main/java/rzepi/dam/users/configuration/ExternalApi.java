@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.client.RestTemplate;
 import rzepi.dam.users.details.GetGithubUserDetails;
 import rzepi.dam.users.details.dto.GitHubUserDetails;
-import rzepi.dam.users.details.exception.UserDetailsNotFoundException;
 
 @RequiredArgsConstructor
 class ExternalApi implements GetGithubUserDetails {
@@ -15,10 +14,6 @@ class ExternalApi implements GetGithubUserDetails {
     @Override
     @CircuitBreaker(name = "gitHubService")
     public GitHubUserDetails call(String login) {
-        GitHubUserDetails response = restTemplate.getForObject("/users/" + login, GitHubUserDetails.class);
-        if (response == null) {
-            throw new UserDetailsNotFoundException(login);
-        }
-        return response;
+        return restTemplate.getForObject("/users/" + login, GitHubUserDetails.class);
     }
 }
